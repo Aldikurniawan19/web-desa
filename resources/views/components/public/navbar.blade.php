@@ -81,14 +81,39 @@
                     Potensi
                 </a>
 
-                <div class="pl-4 border-l border-slate-200">
+                <div class="pl-4 border-l border-slate-200 flex items-center gap-3">
                     @auth
-                        <a href="{{ url('/dashboard') }}"
-                            class="px-5 py-2.5 bg-slate-800 text-white text-sm font-semibold rounded-full hover:bg-slate-700 transition shadow-lg shadow-slate-300/50">
-                            Dashboard
-                        </a>
+                        @if (Auth::user()->role !== 'warga')
+                            <a href="{{ url('/dashboard') }}"
+                                class="px-5 py-2.5 bg-slate-800 text-white text-sm font-semibold rounded-full hover:bg-slate-700 transition shadow-lg shadow-slate-300/50">
+                                Dashboard
+                            </a>
+                        @else
+                            <div class="hidden lg:flex flex-col items-end mr-2">
+                                <span class="text-sm font-bold text-slate-700 leading-none">{{ Auth::user()->name }}</span>
+                                <span class="text-[10px] text-slate-500 uppercase">Warga</span>
+                            </div>
+
+                            <a href="{{ route('layanan.index') }}"
+                                class="px-5 py-2.5 bg-white border border-slate-200 text-slate-600 text-sm font-semibold rounded-full hover:border-emerald-500 hover:text-emerald-600 transition"
+                                title="Riwayat Pengajuan">
+                                Riwayat
+                            </a>
+
+                            <form method="POST" action="{{ route('logout') }}">
+                                @csrf
+                                <button type="submit" class="p-2 text-slate-400 hover:text-red-500 transition"
+                                    title="Keluar">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1">
+                                        </path>
+                                    </svg>
+                                </button>
+                            </form>
+                        @endif
                     @else
-                        <a href="{{ route('login') }}"
+                        <a href="{{ route('layanan.create') }}"
                             class="px-5 py-2.5 bg-emerald-600 text-white text-sm font-semibold rounded-full hover:bg-emerald-700 transition shadow-lg shadow-emerald-200">
                             Layanan Surat
                         </a>
@@ -124,6 +149,32 @@
                 class="block px-3 py-2 rounded-md text-base font-medium text-slate-600 hover:text-slate-900 hover:bg-slate-50">Berita</a>
             <a href="#"
                 class="block px-3 py-2 rounded-md text-base font-medium text-slate-600 hover:text-slate-900 hover:bg-slate-50">Potensi</a>
+            @auth
+                @if (Auth::user()->role !== 'warga')
+                    <a href="{{ url('/dashboard') }}"
+                        class="block px-3 py-2 rounded-md text-base font-medium text-slate-800 bg-slate-100">Dashboard
+                        Admin</a>
+                @else
+                    <a href="{{ route('layanan.index') }}"
+                        class="block px-3 py-2 rounded-md text-base font-medium text-emerald-600 bg-emerald-50">Riwayat
+                        Pengajuan</a>
+                    <form method="POST" action="{{ route('logout') }}">
+                        @csrf
+                        <button type="submit"
+                            class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-red-500 hover:bg-red-50">
+                            Keluar / Logout
+                        </button>
+                    </form>
+                @endif
+            @else
+                <a href="{{ route('layanan.create') }}"
+                    class="block px-3 py-2 rounded-md text-base font-medium text-emerald-600 font-bold bg-emerald-50">
+                    Layanan Surat
+                </a>
+                <a href="{{ route('login') }}" class="block px-3 py-2 rounded-md text-base font-medium text-slate-500">
+                    Login Admin
+                </a>
+            @endauth
         </div>
     </div>
 </nav>

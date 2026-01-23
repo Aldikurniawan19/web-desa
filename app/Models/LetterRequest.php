@@ -4,23 +4,20 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Testing\Fluent\Concerns\Has;
 
-class Article extends Model
+class LetterRequest extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'title',
-        'slug',
-        'content',
-        'excerpt',
-        'image',
         'user_id',
-        'category',
+        'type',
+        'purpose',
         'status',
-        'views',
+        'attachment',
+        'admin_note',
     ];
+
     public function user()
     {
         return $this->belongsTo(User::class);

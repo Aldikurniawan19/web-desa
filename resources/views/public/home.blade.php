@@ -157,6 +157,8 @@
         </div>
     </section>
 
+
+
     <section class="py-20 bg-slate-900 relative overflow-hidden">
         <div class="absolute inset-0 opacity-10"
             style="background-image: radial-gradient(#10b981 1px, transparent 1px); background-size: 30px 30px;"></div>
@@ -188,6 +190,119 @@
                     <div class="text-4xl font-bold text-white mb-2 group-hover:text-emerald-400 transition">12</div>
                     <div class="text-sm text-slate-400 uppercase tracking-wider">RW</div>
                 </div>
+            </div>
+        </div>
+    </section>
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-end mb-12">
+                <div>
+                    <span class="text-emerald-600 font-bold tracking-wider uppercase text-sm">Kabar Desa</span>
+                    <h2 class="text-3xl font-bold text-slate-900 mt-2">Berita & Kegiatan Terbaru</h2>
+                </div>
+                <a href="#"
+                    class="hidden md:inline-flex items-center text-emerald-600 font-semibold hover:text-emerald-700 transition">
+                    Lihat Semua Berita
+                    <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                    </svg>
+                </a>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                @forelse($latest_articles as $article)
+                    <article
+                        class="group bg-white rounded-2xl shadow-sm hover:shadow-xl border border-slate-100 overflow-hidden transition-all duration-300 hover:-translate-y-1 flex flex-col h-full">
+                        <div class="relative h-48 overflow-hidden">
+                            <div class="absolute inset-0 bg-slate-200 animate-pulse"></div>
+                            @if ($article->image)
+                                <img src="{{ asset('storage/' . $article->image) }}" alt="{{ $article->title }}"
+                                    class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                            @else
+                                <div
+                                    class="absolute inset-0 bg-emerald-50 flex items-center justify-center text-emerald-200">
+                                    <svg class="w-16 h-16" fill="currentColor" viewBox="0 0 24 24">
+                                        <path
+                                            d="M19 3H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2V5c0-1.103-.897-2-2-2zM5 19V5h14l.002 14H5z">
+                                        </path>
+                                        <path d="m10 14-1-1-3 4h12l-5-7z"></path>
+                                    </svg>
+                                </div>
+                            @endif
+
+                            <div class="absolute top-4 left-4">
+                                <span
+                                    class="px-3 py-1 bg-white/90 backdrop-blur text-xs font-bold text-emerald-700 rounded-full shadow-sm uppercase tracking-wide">
+                                    {{ $article->category }}
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="p-6 flex-1 flex flex-col">
+                            <div class="flex items-center text-xs text-slate-500 mb-3 space-x-4">
+                                <span class="flex items-center">
+                                    <svg class="w-4 h-4 mr-1 text-emerald-500" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z">
+                                        </path>
+                                    </svg>
+                                    {{ $article->created_at->translatedFormat('d F Y') }}
+                                </span>
+                                <span class="flex items-center">
+                                    <svg class="w-4 h-4 mr-1 text-emerald-500" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z">
+                                        </path>
+                                    </svg>
+                                    {{ $article->user->name ?? 'Admin' }}
+                                </span>
+                            </div>
+
+                            <h3
+                                class="text-xl font-bold text-slate-800 mb-3 leading-snug group-hover:text-emerald-600 transition">
+                                <a href="{{ route('berita.show', $article->slug) }}">
+                                    {{ $article->title }}
+                                </a>
+                            </h3>
+
+                            <p class="text-slate-600 text-sm line-clamp-3 mb-4 flex-1">
+                                {{ $article->excerpt }}
+                            </p>
+
+                            <a href="{{ route('berita.show', $article->slug) }}"
+                                class="inline-flex items-center text-sm font-semibold text-emerald-600 hover:text-emerald-700 transition mt-auto">
+                                Baca Selengkapnya
+                                <svg class="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform"
+                                    fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </article>
+                @empty
+                    <div
+                        class="col-span-3 text-center py-12 bg-slate-50 rounded-2xl border border-dashed border-slate-300">
+                        <svg class="w-12 h-12 mx-auto text-slate-400 mb-4" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z">
+                            </path>
+                        </svg>
+                        <h3 class="text-lg font-medium text-slate-900">Belum ada berita terbaru</h3>
+                        <p class="text-slate-500">Silakan update berita melalui halaman admin.</p>
+                    </div>
+                @endforelse
+            </div>
+
+            <div class="mt-8 text-center md:hidden">
+                <a href="#"
+                    class="inline-block px-6 py-3 border border-emerald-600 text-emerald-600 font-semibold rounded-full hover:bg-emerald-50 transition">
+                    Lihat Semua Berita
+                </a>
             </div>
         </div>
     </section>
