@@ -200,7 +200,7 @@
                     <span class="text-emerald-600 font-bold tracking-wider uppercase text-sm">Kabar Desa</span>
                     <h2 class="text-3xl font-bold text-slate-900 mt-2">Berita & Kegiatan Terbaru</h2>
                 </div>
-                <a href="#"
+                <a href="{{ route('berita.index') }}"
                     class="hidden md:inline-flex items-center text-emerald-600 font-semibold hover:text-emerald-700 transition">
                     Lihat Semua Berita
                     <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -299,7 +299,7 @@
             </div>
 
             <div class="mt-8 text-center md:hidden">
-                <a href="#"
+                <a href="{{ route('berita.index') }}"
                     class="inline-block px-6 py-3 border border-emerald-600 text-emerald-600 font-semibold rounded-full hover:bg-emerald-50 transition">
                     Lihat Semua Berita
                 </a>

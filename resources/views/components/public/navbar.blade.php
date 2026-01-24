@@ -62,21 +62,21 @@
                     </button>
                     <div
                         class="absolute left-0 top-[60px] w-56 bg-white border border-slate-100 rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top-left -translate-y-2 group-hover:translate-y-0 p-2">
-                        <a href="#"
+                        <a href="{{ route('pemerintahan.struktur') }}"
                             class="block px-4 py-2 text-sm text-slate-600 hover:bg-emerald-50 hover:text-emerald-700 rounded-lg">Struktur
                             Organisasi</a>
-                        <a href="#"
+                        <a href="{{ route('pemerintahan.lembaga') }}"
                             class="block px-4 py-2 text-sm text-slate-600 hover:bg-emerald-50 hover:text-emerald-700 rounded-lg">Lembaga
                             Desa</a>
                     </div>
                 </div>
 
-                <a href="#"
+                <a href="{{ route('berita.index') }}"
                     class="inline-flex items-center px-3 py-2 text-sm font-medium text-slate-500 hover:text-emerald-600 hover:bg-slate-50 rounded-lg transition duration-150 ease-in-out">
                     Berita
                 </a>
 
-                <a href="#"
+                <a href="{{ route('potensi.index') }}"
                     class="inline-flex items-center px-3 py-2 text-sm font-medium text-slate-500 hover:text-emerald-600 hover:bg-slate-50 rounded-lg transition duration-150 ease-in-out">
                     Potensi
                 </a>
@@ -145,9 +145,9 @@
             </a>
             <a href="#"
                 class="block px-3 py-2 rounded-md text-base font-medium text-slate-600 hover:text-slate-900 hover:bg-slate-50">Pemerintahan</a>
-            <a href="#"
+            <a href="{{ route('berita.index') }}"
                 class="block px-3 py-2 rounded-md text-base font-medium text-slate-600 hover:text-slate-900 hover:bg-slate-50">Berita</a>
-            <a href="#"
+            <a href="{{ route('potensi.index') }}"
                 class="block px-3 py-2 rounded-md text-base font-medium text-slate-600 hover:text-slate-900 hover:bg-slate-50">Potensi</a>
             @auth
                 @if (Auth::user()->role !== 'warga')
