@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Complaint;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 
 class ComplaintController extends Controller
@@ -26,8 +27,9 @@ class ComplaintController extends Controller
 
         $data = $request->except(['_token', '_method']);
 
-        if ($request->hasFile('image')) {
-            $data['image'] = $request->file('image')->store('complaints', 'public');
+        // LOGIKA BARU: Jika user sedang login, simpan ID-nya
+        if (Auth::check()) {
+            $data['user_id'] = Auth::id();
         }
 
         $data['ticket_id'] = '#TIK-' . strtoupper(Str::random(6));

@@ -13,6 +13,7 @@ use App\Http\Controllers\PotensiController;
 use App\Http\Controllers\ProfilDesaController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PublicController;
+use App\Http\Controllers\TransparencyController;
 use App\Models\Article;
 use App\Models\LetterRequest;
 use App\Models\User;
@@ -25,13 +26,19 @@ Route::get('/', [PublicController::class, 'index'])->name('home');
 Route::get('/berita', [PublicController::class, 'articles'])->name('berita.index');
 Route::get('/berita/{slug}', [PublicController::class, 'showBerita'])->name('berita.show');
 
-Route::get('/layanan/pengaduan', [ComplaintController::class, 'index'])->name('layanan.pengaduan');
-Route::post('/layanan/pengaduan', [ComplaintController::class, 'store'])->name('layanan.pengaduan.store');
-Route::post('/layanan/pengaduan/cek', [ComplaintController::class, 'checkStatus'])->name('layanan.pengaduan.check');
+
 
 Route::get('/profil/visi-misi', [PublicController::class, 'visiMisi'])->name('profil.visi-misi');
 Route::get('/profil/sejarah', [PublicController::class, 'sejarah'])->name('profil.sejarah');
 Route::get('/pemerintahan/lembaga', [PemerintahanController::class, 'lembaga'])->name('pemerintahan.lembaga');
+
+Route::prefix('transparansi')->name('transparansi.')->group(function () {
+    Route::get('/apbdes', [TransparencyController::class, 'apbdes'])->name('apbdes');
+    Route::get('/realisasi', [TransparencyController::class, 'realisasi'])->name('realisasi');
+    Route::get('/laporan-keuangan', [TransparencyController::class, 'laporan'])->name('laporan');
+    Route::get('/program-kerja', [TransparencyController::class, 'program'])->name('program');
+});
+
 Route::get('/potensi-desa', [PotensiController::class, 'index'])->name('potensi.index');
 // Group Pemerintahan
 Route::prefix('pemerintahan')->name('pemerintahan.')->group(function () {
@@ -63,10 +70,16 @@ Route::middleware('auth')->group(function () {
     Route::get('/layanan', [LetterRequestController::class, 'index'])->name('layanan.index');
     Route::get('/layanan/buat', [LetterRequestController::class, 'create'])->name('layanan.create');
     Route::post('/layanan', [LetterRequestController::class, 'store'])->name('layanan.store');
+    Route::get('/layanan/surat/{id}/download', [LetterRequestController::class, 'download'])->name('layanan.surat.download');
+
 
     Route::get('/admin/pengaduan', [AdminComplaintController::class, 'index'])->name('admin.complaints.index');
     Route::get('/admin/pengaduan/{id}', [AdminComplaintController::class, 'show'])->name('admin.complaints.show');
     Route::put('/admin/pengaduan/{id}', [AdminComplaintController::class, 'update'])->name('admin.complaints.update');
+
+    Route::get('/layanan/pengaduan', [ComplaintController::class, 'index'])->name('layanan.pengaduan');
+    Route::post('/layanan/pengaduan', [ComplaintController::class, 'store'])->name('layanan.pengaduan.store');
+    Route::post('/layanan/pengaduan/cek', [ComplaintController::class, 'checkStatus'])->name('layanan.pengaduan.check');
 
     Route::resource('admin/staff', AdminStaffController::class, ['names' => 'admin.staff']);
 

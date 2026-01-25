@@ -9,6 +9,7 @@ class Complaint extends Model
 {
     use HasFactory;
     protected $fillable = [
+        'user_id',
         'ticket_id',
         'name',
         'nik',
@@ -21,4 +22,9 @@ class Complaint extends Model
         'status',
         'admin_response',
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

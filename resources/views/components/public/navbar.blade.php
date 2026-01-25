@@ -140,6 +140,49 @@
                             Desa</a>
                     </div>
                 </div>
+                <div class="relative group h-full flex items-center">
+                    <button
+                        class="px-4 py-2 text-sm rounded-full font-medium inline-flex items-center transition-all duration-300"
+                        :class="{
+                            'bg-emerald-50 text-emerald-700 font-bold': (scrolled || !
+                                    {{ request()->routeIs('home') ? 'true' : 'false' }}) &&
+                                {{ request()->routeIs('transparansi.*') ? 'true' : 'false' }},
+                            'text-slate-600 hover:text-emerald-600 hover:bg-slate-50': (scrolled || !
+                                    {{ request()->routeIs('home') ? 'true' : 'false' }}) && !
+                                {{ request()->routeIs('transparansi.*') ? 'true' : 'false' }},
+                        
+                            'bg-white/20 text-white font-bold backdrop-blur-sm shadow-sm ring-1 ring-white/30': (!
+                                    scrolled && {{ request()->routeIs('home') ? 'true' : 'false' }}) &&
+                                {{ request()->routeIs('transparansi.*') ? 'true' : 'false' }},
+                            'text-white/90 hover:text-white hover:bg-white/10': (!scrolled &&
+                                    {{ request()->routeIs('home') ? 'true' : 'false' }}) && !
+                                {{ request()->routeIs('transparansi.*') ? 'true' : 'false' }}
+                        }">
+                        Transparansi
+                        <svg class="ml-1 w-4 h-4 transition-transform duration-200 group-hover:rotate-180"
+                            fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7">
+                            </path>
+                        </svg>
+                    </button>
+
+                    <div
+                        class="absolute left-0 top-[65px] w-64 bg-white border border-slate-100 rounded-2xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top-left -translate-y-2 group-hover:translate-y-0 p-2 z-50">
+                        <a href="{{ route('transparansi.apbdes') }}"
+                            class="block px-4 py-2.5 text-sm rounded-xl transition-colors {{ request()->routeIs('transparansi.apbdes') ? 'bg-emerald-50 text-emerald-700 font-bold' : 'text-slate-600 hover:bg-slate-50 hover:text-emerald-600' }}">APBDes
+                            (Infografis)</a>
+                        <a href="{{ route('transparansi.realisasi') }}"
+                            class="block px-4 py-2.5 text-sm rounded-xl transition-colors {{ request()->routeIs('transparansi.realisasi') ? 'bg-emerald-50 text-emerald-700 font-bold' : 'text-slate-600 hover:bg-slate-50 hover:text-emerald-600' }}">Realisasi
+                            Anggaran</a>
+                        <div class="border-t border-slate-50 my-1"></div>
+                        <a href="{{ route('transparansi.laporan') }}"
+                            class="block px-4 py-2.5 text-sm rounded-xl transition-colors {{ request()->routeIs('transparansi.laporan') ? 'bg-emerald-50 text-emerald-700 font-bold' : 'text-slate-600 hover:bg-slate-50 hover:text-emerald-600' }}">Laporan
+                            Keuangan (PDF)</a>
+                        <a href="{{ route('transparansi.program') }}"
+                            class="block px-4 py-2.5 text-sm rounded-xl transition-colors {{ request()->routeIs('transparansi.program') ? 'bg-emerald-50 text-emerald-700 font-bold' : 'text-slate-600 hover:bg-slate-50 hover:text-emerald-600' }}">Program
+                            Kerja Desa</a>
+                    </div>
+                </div>
 
                 <a href="{{ route('berita.index') }}"
                     class="px-4 py-2 text-sm rounded-full font-medium transition-all duration-300"
