@@ -1,10 +1,12 @@
 <?php
 
+use App\Http\Controllers\AdminComplaintController;
 use App\Http\Controllers\AdminLetterController;
 use App\Http\Controllers\AdminPotensiController;
 use App\Http\Controllers\AdminProfileController;
 use App\Http\Controllers\AdminStaffController;
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\ComplaintController;
 use App\Http\Controllers\LetterRequestController;
 use App\Http\Controllers\PemerintahanController;
 use App\Http\Controllers\PotensiController;
@@ -23,11 +25,12 @@ Route::get('/', [PublicController::class, 'index'])->name('home');
 Route::get('/berita', [PublicController::class, 'articles'])->name('berita.index');
 Route::get('/berita/{slug}', [PublicController::class, 'showBerita'])->name('berita.show');
 
-Route::prefix('profil')->name('profil.')->group(function () {
-    Route::get('/sejarah', [ProfilDesaController::class, 'sejarah'])->name('sejarah');
-    Route::get('/visi-misi', [ProfilDesaController::class, 'visiMisi'])->name('visi-misi');
-    // Nanti bisa tambah geografis, demografi, dll disini
-});
+Route::get('/layanan/pengaduan', [ComplaintController::class, 'index'])->name('layanan.pengaduan');
+Route::post('/layanan/pengaduan', [ComplaintController::class, 'store'])->name('layanan.pengaduan.store');
+Route::post('/layanan/pengaduan/cek', [ComplaintController::class, 'checkStatus'])->name('layanan.pengaduan.check');
+
+Route::get('/profil/visi-misi', [PublicController::class, 'visiMisi'])->name('profil.visi-misi');
+Route::get('/profil/sejarah', [PublicController::class, 'sejarah'])->name('profil.sejarah');
 Route::get('/pemerintahan/lembaga', [PemerintahanController::class, 'lembaga'])->name('pemerintahan.lembaga');
 Route::get('/potensi-desa', [PotensiController::class, 'index'])->name('potensi.index');
 // Group Pemerintahan
@@ -57,19 +60,18 @@ Route::middleware('auth')->group(function () {
     Route::get('/admin/profil-desa', [AdminProfileController::class, 'index'])->name('admin.profile.index');
     Route::put('/admin/profil-desa', [AdminProfileController::class, 'update'])->name('admin.profile.update');
 
-    // BENAR (Lewat Controller agar data $profile terkirim)
-    Route::get('/profil/visi-misi', [PublicController::class, 'visiMisi'])->name('profil.visi-misi');
-    Route::get('/profil/sejarah', [PublicController::class, 'sejarah'])->name('profil.sejarah');
-
     Route::get('/layanan', [LetterRequestController::class, 'index'])->name('layanan.index');
     Route::get('/layanan/buat', [LetterRequestController::class, 'create'])->name('layanan.create');
     Route::post('/layanan', [LetterRequestController::class, 'store'])->name('layanan.store');
 
+    Route::get('/admin/pengaduan', [AdminComplaintController::class, 'index'])->name('admin.complaints.index');
+    Route::get('/admin/pengaduan/{id}', [AdminComplaintController::class, 'show'])->name('admin.complaints.show');
+    Route::put('/admin/pengaduan/{id}', [AdminComplaintController::class, 'update'])->name('admin.complaints.update');
+
     Route::resource('admin/staff', AdminStaffController::class, ['names' => 'admin.staff']);
 
     Route::resource('admin/potensi', AdminPotensiController::class, ['names' => 'admin.potensi']);
-    // --- ADMIN SURAT ---
-    // Kita gunakan custom route agar URL-nya rapi (admin/surat)
+
     Route::get('/admin/surat', [AdminLetterController::class, 'index'])->name('admin.letters.index');
     Route::get('/admin/surat/{id}', [AdminLetterController::class, 'show'])->name('admin.letters.show');
     Route::put('/admin/surat/{id}', [AdminLetterController::class, 'update'])->name('admin.letters.update');

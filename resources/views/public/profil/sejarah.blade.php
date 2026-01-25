@@ -1,12 +1,8 @@
 <x-layouts.public>
-
-    <div class="bg-white pt-20 pb-10 border-b border-slate-100">
-        <div class="max-w-4xl mx-auto px-4 text-center">
-            <span class="text-emerald-600 font-bold tracking-widest text-xs uppercase mb-2 block">Profil Desa</span>
-            <h1 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Sejarah & Asal Usul</h1>
-            <div class="w-16 h-1 bg-emerald-500 mx-auto rounded-full"></div>
-        </div>
-    </div>
+    <x-public.header-breadcrumb title="Sejarah & Asal Usul" :links="[
+        'Profil Desa' => '#',
+        'Sejarah' => null,
+    ]" />
 
     <div class="bg-slate-50/50 py-12 min-h-screen">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">

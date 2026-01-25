@@ -54,7 +54,7 @@
         </div>
 
         <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-            <a href="#"
+            <a href="{{ route('layanan.index') }}"
                 class="group p-6 bg-slate-50 rounded-2xl border border-slate-100 hover:bg-white hover:shadow-xl hover:-translate-y-1 transition-all duration-300 text-center">
                 <div
                     class="w-14 h-14 mx-auto bg-blue-100 text-blue-600 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition">
@@ -68,7 +68,7 @@
                 <p class="text-xs text-slate-500 mt-2">Buat surat keterangan dari rumah</p>
             </a>
 
-            <a href="#"
+            <a href="{{ route('layanan.pengaduan') }}"
                 class="group p-6 bg-slate-50 rounded-2xl border border-slate-100 hover:bg-white hover:shadow-xl hover:-translate-y-1 transition-all duration-300 text-center">
                 <div
                     class="w-14 h-14 mx-auto bg-red-100 text-red-600 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition">
@@ -82,7 +82,7 @@
                 <p class="text-xs text-slate-500 mt-2">Laporkan masalah di lingkungan</p>
             </a>
 
-            <a href="#"
+            <a href="{{ route('berita.index') }}"
                 class="group p-6 bg-slate-50 rounded-2xl border border-slate-100 hover:bg-white hover:shadow-xl hover:-translate-y-1 transition-all duration-300 text-center">
                 <div
                     class="w-14 h-14 mx-auto bg-amber-100 text-amber-600 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition">
@@ -95,7 +95,7 @@
                 <p class="text-xs text-slate-500 mt-2">Berita dan pengumuman terbaru</p>
             </a>
 
-            <a href="#"
+            <a href="{{ route('potensi.index') }}"
                 class="group p-6 bg-slate-50 rounded-2xl border border-slate-100 hover:bg-white hover:shadow-xl hover:-translate-y-1 transition-all duration-300 text-center">
                 <div
                     class="w-14 h-14 mx-auto bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition">

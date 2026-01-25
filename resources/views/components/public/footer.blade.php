@@ -20,10 +20,13 @@
             <div>
                 <h4 class="text-white text-md font-semibold mb-4">Akses Cepat</h4>
                 <ul class="space-y-2 text-sm">
-                    <li><a href="#" class="hover:text-emerald-400 transition">Profil Desa</a></li>
-                    <li><a href="#" class="hover:text-emerald-400 transition">Informasi Publik</a></li>
-                    <li><a href="#" class="hover:text-emerald-400 transition">Potensi Desa</a></li>
-                    <li><a href="#" class="hover:text-emerald-400 transition">Layanan Kependudukan</a></li>
+                    <li><a href="{{ route('profil.sejarah') }}" class="hover:text-emerald-400 transition">Profil
+                            Desa</a></li>
+                    <li><a href="{{ route('berita.index') }}" class="hover:text-emerald-400 transition">Informasi
+                            Publik</a></li>
+                    <li><a href="{{ route('potensi.index') }}" class="hover:text-emerald-400 transition">Potensi
+                            Desa</a></li>
+                    <li><a href="layanan" class="hover:text-emerald-400 transition">Layanan Kependudukan</a></li>
                 </ul>
             </div>
 
