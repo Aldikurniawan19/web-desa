@@ -2,13 +2,21 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Apbdes;
 use Illuminate\Http\Request;
 
 class TransparencyController extends Controller
 {
     public function apbdes()
     {
-        return view('public.transparansi.apbdes');
+        $year = date('Y');
+        $data = Apbdes::where('tahun', $year)->first();
+
+        if (!$data) {
+            $data = Apbdes::orderBy('tahun', 'desc')->first();
+        }
+
+        return view('public.transparansi.apbdes', compact('data'));
     }
 
     public function realisasi()

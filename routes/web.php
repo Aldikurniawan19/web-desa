@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminApbdesController;
 use App\Http\Controllers\AdminComplaintController;
 use App\Http\Controllers\AdminLetterController;
 use App\Http\Controllers\AdminPotensiController;
@@ -67,6 +68,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/admin/profil-desa', [AdminProfileController::class, 'index'])->name('admin.profile.index');
     Route::put('/admin/profil-desa', [AdminProfileController::class, 'update'])->name('admin.profile.update');
 
+    Route::resource('admin/apbdes', AdminApbdesController::class, ['as' => 'admin']);
     Route::get('/layanan', [LetterRequestController::class, 'index'])->name('layanan.index');
     Route::get('/layanan/buat', [LetterRequestController::class, 'create'])->name('layanan.create');
     Route::post('/layanan', [LetterRequestController::class, 'store'])->name('layanan.store');
