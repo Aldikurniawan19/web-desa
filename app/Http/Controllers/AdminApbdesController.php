@@ -30,6 +30,10 @@ class AdminApbdesController extends Controller
             'belanja_pembangunan' => 'required|numeric',
             'belanja_kemasyarakatan' => 'required|numeric',
             'belanja_pemberdayaan' => 'required|numeric',
+            'realisasi_pemerintahan' => 'nullable|numeric',
+            'realisasi_pembangunan' => 'nullable|numeric',
+            'realisasi_kemasyarakatan' => 'nullable|numeric',
+            'realisasi_pemberdayaan' => 'nullable|numeric',
         ]);
 
         Apbdes::create($data);
@@ -56,6 +60,10 @@ class AdminApbdesController extends Controller
             'belanja_pembangunan' => 'required|numeric',
             'belanja_kemasyarakatan' => 'required|numeric',
             'belanja_pemberdayaan' => 'required|numeric',
+            'realisasi_pemerintahan' => 'nullable|numeric',
+            'realisasi_pembangunan' => 'nullable|numeric',
+            'realisasi_kemasyarakatan' => 'nullable|numeric',
+            'realisasi_pemberdayaan' => 'nullable|numeric',
         ]);
 
         $apbdes->update($data);

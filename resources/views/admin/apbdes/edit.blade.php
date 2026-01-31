@@ -65,41 +65,78 @@
                     </div>
                 </div>
 
-                <div class="bg-amber-50 p-6 rounded-xl border border-amber-100">
-                    <h3 class="font-bold text-amber-800 mb-4 border-b border-amber-200 pb-2 flex justify-between">
-                        B. BELANJA DESA
-                        <span class="text-xs font-normal opacity-70">(Input Angka Tanpa Titik)</span>
+                <div class="md:col-span-2 bg-amber-50 p-6 rounded-xl border border-amber-100">
+                    <h3 class="font-bold text-amber-800 mb-4 border-b border-amber-200 pb-2">
+                        B. BELANJA & REALISASI (PENYERAPAN)
                     </h3>
 
-                    <div class="space-y-4">
-                        <div>
-                            <label class="block text-sm font-medium text-slate-600 mb-1">Bidang Pemerintahan</label>
-                            <input type="number" name="belanja_pemerintahan"
-                                value="{{ old('belanja_pemerintahan', $apbdes->belanja_pemerintahan) }}"
-                                class="w-full border-slate-200 rounded-lg text-right font-mono focus:border-amber-500 focus:ring-amber-200"
-                                required>
+                    <div class="space-y-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-bold uppercase text-slate-500 mb-1">Anggaran
+                                    Pemerintahan</label>
+                                <input type="number" name="belanja_pemerintahan"
+                                    value="{{ old('belanja_pemerintahan', $apbdes->belanja_pemerintahan) }}"
+                                    class="w-full border-slate-200 rounded-lg text-right font-mono bg-white" required>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold uppercase text-emerald-600 mb-1">Realisasi
+                                    (Terpakai)</label>
+                                <input type="number" name="realisasi_pemerintahan"
+                                    value="{{ old('realisasi_pemerintahan', $apbdes->realisasi_pemerintahan) }}"
+                                    class="w-full border-emerald-200 focus:border-emerald-500 focus:ring-emerald-200 rounded-lg text-right font-mono bg-emerald-50/50">
+                            </div>
                         </div>
-                        <div>
-                            <label class="block text-sm font-medium text-slate-600 mb-1">Bidang Pembangunan</label>
-                            <input type="number" name="belanja_pembangunan"
-                                value="{{ old('belanja_pembangunan', $apbdes->belanja_pembangunan) }}"
-                                class="w-full border-slate-200 rounded-lg text-right font-mono focus:border-amber-500 focus:ring-amber-200"
-                                required>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-bold uppercase text-slate-500 mb-1">Anggaran
+                                    Pembangunan</label>
+                                <input type="number" name="belanja_pembangunan"
+                                    value="{{ old('belanja_pembangunan', $apbdes->belanja_pembangunan) }}"
+                                    class="w-full border-slate-200 rounded-lg text-right font-mono bg-white" required>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold uppercase text-emerald-600 mb-1">Realisasi
+                                    (Terpakai)</label>
+                                <input type="number" name="realisasi_pembangunan"
+                                    value="{{ old('realisasi_pembangunan', $apbdes->realisasi_pembangunan) }}"
+                                    class="w-full border-emerald-200 focus:border-emerald-500 focus:ring-emerald-200 rounded-lg text-right font-mono bg-emerald-50/50">
+                            </div>
                         </div>
-                        <div>
-                            <label class="block text-sm font-medium text-slate-600 mb-1">Bidang Kemasyarakatan</label>
-                            <input type="number" name="belanja_kemasyarakatan"
-                                value="{{ old('belanja_kemasyarakatan', $apbdes->belanja_kemasyarakatan) }}"
-                                class="w-full border-slate-200 rounded-lg text-right font-mono focus:border-amber-500 focus:ring-amber-200"
-                                required>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-bold uppercase text-slate-500 mb-1">Anggaran
+                                    Kemasyarakatan</label>
+                                <input type="number" name="belanja_kemasyarakatan"
+                                    value="{{ old('belanja_kemasyarakatan', $apbdes->belanja_kemasyarakatan) }}"
+                                    class="w-full border-slate-200 rounded-lg text-right font-mono bg-white" required>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold uppercase text-emerald-600 mb-1">Realisasi
+                                    (Terpakai)</label>
+                                <input type="number" name="realisasi_kemasyarakatan"
+                                    value="{{ old('realisasi_kemasyarakatan', $apbdes->realisasi_kemasyarakatan) }}"
+                                    class="w-full border-emerald-200 focus:border-emerald-500 focus:ring-emerald-200 rounded-lg text-right font-mono bg-emerald-50/50">
+                            </div>
                         </div>
-                        <div>
-                            <label class="block text-sm font-medium text-slate-600 mb-1">Bidang Pemberdayaan &
-                                Darurat</label>
-                            <input type="number" name="belanja_pemberdayaan"
-                                value="{{ old('belanja_pemberdayaan', $apbdes->belanja_pemberdayaan) }}"
-                                class="w-full border-slate-200 rounded-lg text-right font-mono focus:border-amber-500 focus:ring-amber-200"
-                                required>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-bold uppercase text-slate-500 mb-1">Anggaran
+                                    Pemberdayaan</label>
+                                <input type="number" name="belanja_pemberdayaan"
+                                    value="{{ old('belanja_pemberdayaan', $apbdes->belanja_pemberdayaan) }}"
+                                    class="w-full border-slate-200 rounded-lg text-right font-mono bg-white" required>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold uppercase text-emerald-600 mb-1">Realisasi
+                                    (Terpakai)</label>
+                                <input type="number" name="realisasi_pemberdayaan"
+                                    value="{{ old('realisasi_pemberdayaan', $apbdes->realisasi_pemberdayaan) }}"
+                                    class="w-full border-emerald-200 focus:border-emerald-500 focus:ring-emerald-200 rounded-lg text-right font-mono bg-emerald-50/50">
+                            </div>
                         </div>
                     </div>
                 </div>

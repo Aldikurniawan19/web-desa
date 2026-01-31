@@ -21,7 +21,14 @@ class TransparencyController extends Controller
 
     public function realisasi()
     {
-        return view('public.transparansi.realisasi');
+        $year = date('Y');
+        $data = Apbdes::where('tahun', $year)->first();
+
+        if (!$data) {
+            $data = Apbdes::orderBy('tahun', 'desc')->first();
+        }
+
+        return view('public.transparansi.realisasi', compact('data'));
     }
 
     public function laporan()

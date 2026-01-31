@@ -254,7 +254,7 @@
                                 },
                                 fontFamily: 'inherit',
                             },
-                            colors: ['#f59e0b'], // Warna Amber
+                            colors: ['#f59e0b'],
                             plotOptions: {
                                 bar: {
                                     borderRadius: 6,
