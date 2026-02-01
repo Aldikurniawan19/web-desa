@@ -2,12 +2,15 @@
 
 use App\Http\Controllers\AdminApbdesController;
 use App\Http\Controllers\AdminComplaintController;
+use App\Http\Controllers\AdminHeroController;
 use App\Http\Controllers\AdminLetterController;
 use App\Http\Controllers\AdminPotensiController;
 use App\Http\Controllers\AdminProfileController;
+use App\Http\Controllers\AdminSettingController;
 use App\Http\Controllers\AdminStaffController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\ComplaintController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LetterRequestController;
 use App\Http\Controllers\PemerintahanController;
 use App\Http\Controllers\PotensiController;
@@ -21,9 +24,9 @@ use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', [PublicController::class, 'index'])->name('home');
-
-Route::get('/', [PublicController::class, 'index'])->name('home');
+// Route::get('/', [PublicController::class, 'index'])->name('home');
+Route::get('/', [HomeController::class, 'index'])->name('home');
+// Route::get('/', [PublicController::class, 'index'])->name('home');
 Route::get('/berita', [PublicController::class, 'articles'])->name('berita.index');
 Route::get('/berita/{slug}', [PublicController::class, 'showBerita'])->name('berita.show');
 
@@ -86,6 +89,10 @@ Route::middleware('auth')->group(function () {
     Route::resource('admin/staff', AdminStaffController::class, ['names' => 'admin.staff']);
 
     Route::resource('admin/potensi', AdminPotensiController::class, ['names' => 'admin.potensi']);
+    Route::get('/admin/settings', [AdminSettingController::class, 'index'])->name('admin.settings.index');
+    Route::put('/admin/settings', [AdminSettingController::class, 'update'])->name('admin.settings.update');
+    Route::resource('admin/hero', AdminHeroController::class, ['as' => 'admin'])
+        ->only(['store', 'destroy']);
 
     Route::get('/admin/surat', [AdminLetterController::class, 'index'])->name('admin.letters.index');
     Route::get('/admin/surat/{id}', [AdminLetterController::class, 'show'])->name('admin.letters.show');

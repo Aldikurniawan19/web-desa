@@ -2,18 +2,18 @@
 
     <div x-data="{
         activeSlide: 0,
-        slides: [
-            { img: 'https://images.unsplash.com/photo-1500382017468-9049fed747ef?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80', title: 'Selamat Datang di Desa Maju', subtitle: 'Menuju Desa Mandiri, Sejahtera, dan Berbudaya' },
-            { img: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80', title: 'Pelayanan Publik Digital', subtitle: 'Urus surat menyurat kini lebih mudah dari rumah' },
-            { img: 'https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80', title: 'Potensi Alam Melimpah', subtitle: 'Mendukung ekonomi kreatif dan pariwisata lokal' }
-        ],
+        // PENTING: Ambil data dari variabel PHP $slides
+        slides: {{ Js::from($slides) }},
         timer: null,
         startAutoSlide() {
-            this.timer = setInterval(() => {
-                this.activeSlide = (this.activeSlide + 1) % this.slides.length;
-            }, 5000);
+            if (this.slides.length > 1) { // Hanya auto slide jika gambar > 1
+                this.timer = setInterval(() => {
+                    this.activeSlide = (this.activeSlide + 1) % this.slides.length;
+                }, 5000);
+            }
         }
-    }" x-init="startAutoSlide()" class="relative w-full h-[500px] md:h-[600px] overflow-hidden">
+    }" x-init="startAutoSlide()"
+        class="relative w-full h-[500px] md:h-[600px] overflow-hidden bg-slate-900">
 
         <template x-for="(slide, index) in slides" :key="index">
             <div x-show="activeSlide === index" x-transition:enter="transition ease-out duration-700"
@@ -30,20 +30,22 @@
                     </p>
                     <div>
                         <a href="#layanan"
-                            class="px-8 py-3 bg-emerald-600 hover:bg-emerald-700 text-white rounded-full font-semibold transition shadow-lg shadow-emerald-500/30">Jelajahi
-                            Desa</a>
+                            class="px-8 py-3 bg-emerald-600 hover:bg-emerald-700 text-white rounded-full font-semibold transition shadow-lg shadow-emerald-500/30 transform hover:-translate-y-1">
+                            Jelajahi Desa
+                        </a>
                     </div>
                 </div>
             </div>
         </template>
 
-        <div class="absolute bottom-6 left-0 right-0 flex justify-center space-x-3">
+        <div class="absolute bottom-8 left-0 right-0 flex justify-center gap-2 z-20" x-show="slides.length > 1">
             <template x-for="(slide, index) in slides" :key="index">
-                <button @click="activeSlide = index"
-                    :class="{ 'bg-emerald-500 w-8': activeSlide === index, 'bg-white/50 w-3': activeSlide !== index }"
-                    class="h-3 rounded-full transition-all duration-300"></button>
+                <button @click="activeSlide = index" class="w-3 h-3 rounded-full transition-all duration-300"
+                    :class="activeSlide === index ? 'bg-emerald-500 w-8' : 'bg-white/50 hover:bg-white'">
+                </button>
             </template>
         </div>
+
     </div>
 
     <section id="layanan"

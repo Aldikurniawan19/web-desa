@@ -19,7 +19,15 @@
                             'shadow-black/20': !scrolled &&
                                 {{ request()->routeIs('home') ? 'true' : 'false' }}
                         }">
-                        <img src="{{ asset('assets/logo.png') }}" alt="Logo Desa" class="w-full h-full object-cover">
+                        @if ($site_setting && $site_setting->site_logo)
+                            <img src="{{ asset('storage/' . $site_setting->site_logo) }}" alt="Logo"
+                                class="w-10 h-10 object-contain transition-transform duration-300 group-hover:scale-110">
+                        @else
+                            <div
+                                class="w-10 h-10 bg-emerald-600 rounded-lg flex items-center justify-center text-white font-bold shadow-lg shadow-emerald-600/20">
+                                D
+                            </div>
+                        @endif
                     </div>
 
                     <div class="flex flex-col transition-colors duration-300">
@@ -30,7 +38,7 @@
                                 'text-white': !scrolled &&
                                     {{ request()->routeIs('home') ? 'true' : 'false' }}
                             }">
-                            Desa Maju
+                            {{ $site_setting->site_name ?? 'Desa Digital' }}
                         </span>
                         <span class="text-xs font-medium"
                             :class="{
@@ -39,7 +47,7 @@
                                 'text-emerald-50': !scrolled &&
                                     {{ request()->routeIs('home') ? 'true' : 'false' }}
                             }">
-                            Kabupaten Sejahtera
+                            {{ $site_setting->kabupaten_name ?? 'Kabupaten' }}
                         </span>
                     </div>
                 </a>
@@ -371,7 +379,7 @@
                     Surat</a>
                 <a href="{{ route('login') }}"
                     class="block w-full text-center mt-3 px-4 py-3 rounded-xl text-base font-bold text-slate-500 bg-slate-100">Login
-                    Admin</a>
+                </a>
             @endauth
         </div>
     </div>
