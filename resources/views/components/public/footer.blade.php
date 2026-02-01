@@ -68,7 +68,7 @@
         </div>
 
         <div class="border-t border-slate-800 mt-12 pt-8 text-center text-xs text-slate-500">
-            &copy; {{ date('Y') }} Pemerintah Desa Maju. All rights reserved. Built with Laravel.
+            &copy; {{ date('Y') }} Pemerintah Desa Maju. All rights reserved.By Aldi Kurniawan.
         </div>
     </div>
 </footer>
