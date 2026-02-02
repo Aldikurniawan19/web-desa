@@ -24,9 +24,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
-// Route::get('/', [PublicController::class, 'index'])->name('home');
 Route::get('/', [HomeController::class, 'index'])->name('home');
-// Route::get('/', [PublicController::class, 'index'])->name('home');
 Route::get('/berita', [PublicController::class, 'articles'])->name('berita.index');
 Route::get('/berita/{slug}', [PublicController::class, 'showBerita'])->name('berita.show');
 

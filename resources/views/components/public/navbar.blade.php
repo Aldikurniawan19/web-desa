@@ -322,65 +322,172 @@
             </div>
         </div>
     </div>
-
+    {{-- Mobile --}}
     <div x-show="open" x-transition:enter="transition ease-out duration-200"
         x-transition:enter-start="opacity-0 -translate-y-2" x-transition:enter-end="opacity-100 translate-y-0"
         x-transition:leave="transition ease-in duration-150" x-transition:leave-start="opacity-100 translate-y-0"
         x-transition:leave-end="opacity-0 -translate-y-2"
-        class="md:hidden bg-white border-t border-slate-100 shadow-xl max-h-[80vh] overflow-y-auto">
-        <div class="pt-2 pb-6 space-y-1 px-4">
+        class="md:hidden bg-white border-t border-slate-100 shadow-xl max-h-[85vh] overflow-y-auto custom-scrollbar">
+
+        <div class="pt-4 pb-8 space-y-2 px-4">
+
             <a href="{{ route('home') }}"
-                class="block px-3 py-2.5 rounded-lg text-base font-medium {{ request()->routeIs('home') ? 'bg-emerald-50 text-emerald-700 font-bold' : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50' }}">Beranda</a>
+                class="block px-4 py-3 rounded-xl text-sm font-bold transition-colors {{ request()->routeIs('home') ? 'bg-emerald-50 text-emerald-700' : 'text-slate-700 hover:bg-slate-50' }}">
+                Beranda
+            </a>
 
-            <div class="border-t border-slate-50 my-2"></div>
-            <span class="block px-3 py-1 text-xs font-bold text-slate-400 uppercase tracking-wider">Profil</span>
-            <a href="{{ route('profil.sejarah') }}"
-                class="block px-3 py-2.5 rounded-lg text-base font-medium {{ request()->routeIs('profil.sejarah') ? 'bg-emerald-50 text-emerald-700 font-bold' : 'text-slate-600 hover:bg-slate-50' }}">Sejarah
-                Desa</a>
-            <a href="{{ route('profil.visi-misi') }}"
-                class="block px-3 py-2.5 rounded-lg text-base font-medium {{ request()->routeIs('profil.visi-misi') ? 'bg-emerald-50 text-emerald-700 font-bold' : 'text-slate-600 hover:bg-slate-50' }}">Visi
-                & Misi</a>
+            <div x-data="{ expanded: {{ request()->routeIs('profil.*') ? 'true' : 'false' }} }" class="rounded-xl overflow-hidden" :class="expanded ? 'bg-slate-50' : ''">
+                <button @click="expanded = !expanded"
+                    class="flex items-center justify-between w-full px-4 py-3 text-sm font-bold text-slate-700 hover:bg-slate-50 transition-colors">
+                    <span>Tentang Desa</span>
+                    <svg class="w-4 h-4 transition-transform duration-200 text-slate-400"
+                        :class="expanded ? 'rotate-180 text-emerald-600' : ''" fill="none" stroke="currentColor"
+                        viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7">
+                        </path>
+                    </svg>
+                </button>
+                <div x-show="expanded" x-collapse class="px-4 pb-3 space-y-1">
+                    <a href="{{ route('profil.sejarah') }}"
+                        class="block pl-4 py-2 text-sm rounded-lg {{ request()->routeIs('profil.sejarah') ? 'text-emerald-700 font-bold border-l-2 border-emerald-500' : 'text-slate-600 hover:text-emerald-600' }}">
+                        Sejarah Desa
+                    </a>
+                    <a href="{{ route('profil.visi-misi') }}"
+                        class="block pl-4 py-2 text-sm rounded-lg {{ request()->routeIs('profil.visi-misi') ? 'text-emerald-700 font-bold border-l-2 border-emerald-500' : 'text-slate-600 hover:text-emerald-600' }}">
+                        Visi & Misi
+                    </a>
+                </div>
+            </div>
 
-            <div class="border-t border-slate-50 my-2"></div>
-            <span class="block px-3 py-1 text-xs font-bold text-slate-400 uppercase tracking-wider">Pemerintahan</span>
-            <a href="{{ route('pemerintahan.struktur') }}"
-                class="block px-3 py-2.5 rounded-lg text-base font-medium {{ request()->routeIs('pemerintahan.struktur') ? 'bg-emerald-50 text-emerald-700 font-bold' : 'text-slate-600 hover:bg-slate-50' }}">Struktur
-                Organisasi</a>
-            <a href="{{ route('pemerintahan.lembaga') }}"
-                class="block px-3 py-2.5 rounded-lg text-base font-medium {{ request()->routeIs('pemerintahan.lembaga') ? 'bg-emerald-50 text-emerald-700 font-bold' : 'text-slate-600 hover:bg-slate-50' }}">Lembaga
-                Desa</a>
+            <div x-data="{ expanded: {{ request()->routeIs('pemerintahan.*') ? 'true' : 'false' }} }" class="rounded-xl overflow-hidden" :class="expanded ? 'bg-slate-50' : ''">
+                <button @click="expanded = !expanded"
+                    class="flex items-center justify-between w-full px-4 py-3 text-sm font-bold text-slate-700 hover:bg-slate-50 transition-colors">
+                    <span>Pemerintahan</span>
+                    <svg class="w-4 h-4 transition-transform duration-200 text-slate-400"
+                        :class="expanded ? 'rotate-180 text-emerald-600' : ''" fill="none" stroke="currentColor"
+                        viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7">
+                        </path>
+                    </svg>
+                </button>
+                <div x-show="expanded" x-collapse class="px-4 pb-3 space-y-1">
+                    <a href="{{ route('pemerintahan.struktur') }}"
+                        class="block pl-4 py-2 text-sm rounded-lg {{ request()->routeIs('pemerintahan.struktur') ? 'text-emerald-700 font-bold border-l-2 border-emerald-500' : 'text-slate-600 hover:text-emerald-600' }}">
+                        Struktur Organisasi
+                    </a>
+                    <a href="{{ route('pemerintahan.lembaga') }}"
+                        class="block pl-4 py-2 text-sm rounded-lg {{ request()->routeIs('pemerintahan.lembaga') ? 'text-emerald-700 font-bold border-l-2 border-emerald-500' : 'text-slate-600 hover:text-emerald-600' }}">
+                        Lembaga Desa
+                    </a>
+                </div>
+            </div>
 
-            <div class="border-t border-slate-50 my-2"></div>
-            <a href="{{ route('berita.index') }}"
-                class="block px-3 py-2.5 rounded-lg text-base font-medium {{ request()->routeIs('berita.*') ? 'bg-emerald-50 text-emerald-700 font-bold' : 'text-slate-600 hover:bg-slate-50' }}">Berita</a>
-            <a href="{{ route('potensi.index') }}"
-                class="block px-3 py-2.5 rounded-lg text-base font-medium {{ request()->routeIs('potensi.*') ? 'bg-emerald-50 text-emerald-700 font-bold' : 'text-slate-600 hover:bg-slate-50' }}">Potensi</a>
+            <div x-data="{ expanded: {{ request()->routeIs('transparansi.*') ? 'true' : 'false' }} }" class="rounded-xl overflow-hidden" :class="expanded ? 'bg-slate-50' : ''">
+                <button @click="expanded = !expanded"
+                    class="flex items-center justify-between w-full px-4 py-3 text-sm font-bold text-slate-700 hover:bg-slate-50 transition-colors">
+                    <span>Transparansi Publik</span>
+                    <svg class="w-4 h-4 transition-transform duration-200 text-slate-400"
+                        :class="expanded ? 'rotate-180 text-emerald-600' : ''" fill="none" stroke="currentColor"
+                        viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7">
+                        </path>
+                    </svg>
+                </button>
+                <div x-show="expanded" x-collapse class="px-4 pb-3 space-y-1">
+                    <a href="{{ route('transparansi.apbdes') }}"
+                        class="block pl-4 py-2 text-sm rounded-lg {{ request()->routeIs('transparansi.apbdes') ? 'text-emerald-700 font-bold border-l-2 border-emerald-500' : 'text-slate-600 hover:text-emerald-600' }}">
+                        Infografis APBDes
+                    </a>
+                    <a href="{{ route('transparansi.realisasi') }}"
+                        class="block pl-4 py-2 text-sm rounded-lg {{ request()->routeIs('transparansi.realisasi') ? 'text-emerald-700 font-bold border-l-2 border-emerald-500' : 'text-slate-600 hover:text-emerald-600' }}">
+                        Realisasi Anggaran
+                    </a>
+                    <a href="{{ route('transparansi.laporan') }}"
+                        class="block pl-4 py-2 text-sm rounded-lg {{ request()->routeIs('transparansi.laporan') ? 'text-emerald-700 font-bold border-l-2 border-emerald-500' : 'text-slate-600 hover:text-emerald-600' }}">
+                        Laporan Keuangan
+                    </a>
+                    <a href="{{ route('transparansi.program') }}"
+                        class="block pl-4 py-2 text-sm rounded-lg {{ request()->routeIs('transparansi.program') ? 'text-emerald-700 font-bold border-l-2 border-emerald-500' : 'text-slate-600 hover:text-emerald-600' }}">
+                        Program Kerja
+                    </a>
+                </div>
+            </div>
 
-            <div class="border-t border-slate-50 my-4"></div>
+            <div x-data="{ expanded: {{ request()->routeIs('berita.*') || request()->routeIs('potensi.*') ? 'true' : 'false' }} }" class="rounded-xl overflow-hidden" :class="expanded ? 'bg-slate-50' : ''">
+                <button @click="expanded = !expanded"
+                    class="flex items-center justify-between w-full px-4 py-3 text-sm font-bold text-slate-700 hover:bg-slate-50 transition-colors">
+                    <span>Publikasi Desa</span>
+                    <svg class="w-4 h-4 transition-transform duration-200 text-slate-400"
+                        :class="expanded ? 'rotate-180 text-emerald-600' : ''" fill="none" stroke="currentColor"
+                        viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7">
+                        </path>
+                    </svg>
+                </button>
+                <div x-show="expanded" x-collapse class="px-4 pb-3 space-y-1">
+                    <a href="{{ route('berita.index') }}"
+                        class="block pl-4 py-2 text-sm rounded-lg {{ request()->routeIs('berita.*') ? 'text-emerald-700 font-bold border-l-2 border-emerald-500' : 'text-slate-600 hover:text-emerald-600' }}">
+                        Berita Terkini
+                    </a>
+                    <a href="{{ route('potensi.index') }}"
+                        class="block pl-4 py-2 text-sm rounded-lg {{ request()->routeIs('potensi.*') ? 'text-emerald-700 font-bold border-l-2 border-emerald-500' : 'text-slate-600 hover:text-emerald-600' }}">
+                        Potensi Desa
+                    </a>
+                </div>
+            </div>
 
-            @auth
-                @if (Auth::user()->role !== 'warga')
-                    <a href="{{ url('/dashboard') }}"
-                        class="block w-full text-center px-4 py-3 rounded-xl text-base font-bold text-white bg-slate-800 shadow-lg">Dashboard
-                        Admin</a>
-                @else
-                    <a href="{{ route('layanan.index') }}"
-                        class="block w-full text-center px-4 py-3 rounded-xl text-base font-bold text-emerald-700 bg-emerald-50 border border-emerald-200">Riwayat
-                        Pengajuan</a>
-                    <form method="POST" action="{{ route('logout') }}" class="mt-3">
+            <div class="border-t border-slate-100 my-4 mx-4"></div>
+
+            <div class="px-4">
+                @auth
+                    <div class="mb-4 flex items-center gap-3 p-3 bg-slate-50 rounded-xl border border-slate-100">
+                        <div
+                            class="w-10 h-10 rounded-full bg-emerald-600 text-white flex items-center justify-center font-bold text-lg shadow-md shadow-emerald-200">
+                            {{ substr(Auth::user()->name, 0, 1) }}
+                        </div>
+                        <div>
+                            <p class="text-sm font-bold text-slate-800">{{ Auth::user()->name }}</p>
+                            <p class="text-[10px] uppercase font-bold text-emerald-600 tracking-wider">
+                                {{ Auth::user()->role === 'admin' ? 'Administrator' : 'Warga Desa' }}
+                            </p>
+                        </div>
+                    </div>
+
+                    @if (Auth::user()->role !== 'warga')
+                        <a href="{{ url('/dashboard') }}"
+                            class="block w-full text-center px-4 py-3 rounded-xl text-sm font-bold text-white bg-slate-800 shadow-lg shadow-slate-300 mb-3">
+                            Dashboard Admin
+                        </a>
+                    @else
+                        <a href="{{ route('layanan.index') }}"
+                            class="block w-full text-center px-4 py-3 rounded-xl text-sm font-bold text-emerald-700 bg-emerald-50 border border-emerald-200 mb-3">
+                            Riwayat Pengajuan
+                        </a>
+                    @endif
+
+                    <form method="POST" action="{{ route('logout') }}">
                         @csrf
                         <button type="submit"
-                            class="block w-full text-center px-4 py-3 rounded-xl text-base font-bold text-red-500 bg-red-50 hover:bg-red-100">Keluar</button>
+                            class="block w-full text-center px-4 py-3 rounded-xl text-sm font-bold text-red-500 bg-white border border-red-100 hover:bg-red-50 transition">
+                            Keluar
+                        </button>
                     </form>
-                @endif
-            @else
-                <a href="{{ route('layanan.create') }}"
-                    class="block w-full text-center px-4 py-3 rounded-xl text-base font-bold text-white bg-emerald-600 shadow-lg shadow-emerald-200">Layanan
-                    Surat</a>
-                <a href="{{ route('login') }}"
-                    class="block w-full text-center mt-3 px-4 py-3 rounded-xl text-base font-bold text-slate-500 bg-slate-100">Login
-                </a>
-            @endauth
+                @else
+                    <div class="grid grid-cols-2 gap-3">
+                        <a href="{{ route('layanan.create') }}"
+                            class="col-span-2 block w-full text-center px-4 py-3 rounded-xl text-sm font-bold text-white bg-emerald-600 shadow-lg shadow-emerald-200">
+                            Buat Surat
+                        </a>
+                        <a href="{{ route('login') }}"
+                            class="col-span-2 block w-full text-center px-4 py-3 rounded-xl text-sm font-bold text-slate-600 bg-slate-100 hover:bg-slate-200">
+                            Login
+                        </a>
+                    </div>
+                @endauth
+            </div>
+
+            <div class="h-8"></div>
         </div>
     </div>
+</nav>
 </nav>
