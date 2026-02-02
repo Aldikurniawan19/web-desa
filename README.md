@@ -1,148 +1,187 @@
-🏛️ Sistem Informasi Desa (SID) - Desa Digital
-Platform Digital Pelayanan, Administrasi, dan Transparansi Desa.
+# SID - Sistem Informasi Desa Digital
 
-Aplikasi berbasis web yang dibangun menggunakan Laravel untuk membantu pemerintah desa dalam mengelola data kependudukan, transparansi anggaran (APBDes), layanan surat menyurat, serta publikasi berita dan potensi desa secara digital.
+![Laravel](https://img.shields.io/badge/Laravel-FF2D20?style=for-the-badge&logo=laravel&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
+![Alpine.js](https://img.shields.io/badge/Alpine.js-8BC0D0?style=for-the-badge&logo=alpinedotjs&logoColor=white)
+![MySQL](https://img.shields.io/badge/MySQL-005C84?style=for-the-badge&logo=mysql&logoColor=white)
 
-(Ganti link gambar di atas dengan screenshot aplikasi Anda nanti)
+**Sistem Informasi Desa (SID)** adalah platform digital terpadu yang dirancang untuk memodernisasi pelayanan administrasi desa, meningkatkan transparansi anggaran (APBDes), serta mempromosikan potensi desa secara luas. Aplikasi ini menghubungkan pemerintah desa dengan warga melalui layanan surat menyurat online dan portal informasi publik.
 
-🚀 Fitur Utama
-🌍 Halaman Publik (Warga)
-Beranda Dinamis: Slider gambar & teks sambutan yang bisa diubah via Admin.
+## 🌟 Fitur Utama
 
-Profil Desa: Menampilkan Sejarah, Visi & Misi, dan Struktur Organisasi.
+### 1. Halaman Publik (Warga)
 
-Transparansi APBDes: Infografis pendapatan, belanja, dan realisasi anggaran desa secara real-time.
+- **Beranda Dinamis:** Slider informasi & sambutan yang dapat diubah oleh admin.
+- **Layanan Mandiri:** Pengajuan surat keterangan (KTP, Domisili, dll) secara online.
+- **Transparansi APBDes:** Infografis Realisasi Anggaran & Laporan Keuangan yang update.
+- **Profil & Potensi:** Informasi sejarah, visi misi, dan potensi wisata/UMKM desa.
+- **Responsive Mobile Menu:** Navigasi ramah seluler dengan model _accordion/dropdown_.
 
-Layanan Mandiri: Warga dapat mengajukan permohonan surat (KTP, SKCK, Kelahiran, dll) secara online.
+### 2. Panel Admin (Perangkat Desa)
 
-Publikasi: Berita terkini dan Potensi Desa (UMKM/Wisata).
+- **CMS Pengaturan Website:**
+    - Ubah Identitas Desa (Nama, Slogan, Logo).
+    - Manajemen Slider Halaman Depan (Upload/Hapus Banner).
+- **Manajemen Layanan:** Verifikasi dan cetak permohonan surat dari warga.
+- **Manajemen Transparansi:** Input data Pagu Anggaran vs Realisasi (Penyerapan).
+- **Manajemen Konten:** Publikasi Berita, Artikel, dan Potensi Desa.
+- **Data Master:** Pengelolaan data Perangkat Desa dan Penduduk.
 
-Responsive Design: Tampilan optimal di Desktop dan Mobile (HP).
+### 3. Antarmuka Modern (UI/UX)
 
-🔐 Panel Admin (Perangkat Desa)
-Dashboard Statistik: Ringkasan data penduduk, surat masuk, dan anggaran.
+- **Tema Emerald:** Desain bersih dan profesional dengan warna identitas hijau emerald.
+- **Interactive Elements:** Penggunaan Alpine.js untuk dropdown, modal, dan sidebar yang mulus.
+- **Data Visualization:** Progress bar dinamis untuk realisasi anggaran.
 
-Pengaturan Website (CMS):
+---
 
-Ubah Nama Desa, Kabupaten, & Logo Desa.
+## 🛠️ Teknologi yang Digunakan
 
-Manajemen Slider Halaman Depan (Tambah/Hapus foto & teks).
+- **Backend:** Laravel 10/11 (PHP Framework)
+- **Frontend:** Blade Templates
+- **Styling:** Tailwind CSS
+- **Interactivity:** Alpine.js
+- **Database:** MySQL
+- **Asset Bundling:** Vite
 
-Manajemen APBDes: Input data Anggaran vs Realisasi (Penyerapan) per bidang.
+---
 
-Layanan Surat: Verifikasi, tolak, atau setujui pengajuan surat dari warga.
+## 📸 Tangkapan Layar (Screenshots)
 
-Data Kependudukan: Manajemen data penduduk desa.
+_(Simpan screenshot aplikasi Anda di folder `public/screenshots` lalu link di sini)_
 
-Manajemen Konten: Tulis berita, artikel, dan data potensi desa.
+|                  Halaman Depan (Home)                  |                     Dashboard Admin                      |
+| :----------------------------------------------------: | :------------------------------------------------------: |
+| ![Home](https://via.placeholder.com/400x200?text=Home) | ![Admin](https://via.placeholder.com/400x200?text=Admin) |
 
-🛠️ Teknologi yang Digunakan
-Backend: Laravel 10/11
+|                    Transparansi APBDes                     |                        Mobile View                         |
+| :--------------------------------------------------------: | :--------------------------------------------------------: |
+| ![APBDes](https://via.placeholder.com/400x200?text=APBDes) | ![Mobile](https://via.placeholder.com/400x200?text=Mobile) |
 
-Frontend: Blade Templating
+---
 
-Styling: Tailwind CSS
+## 🚀 Cara Instalasi (Localhost)
 
-Interactivity: Alpine.js (untuk Navbar, Dropdown, Modal)
+Ikuti langkah-langkah berikut untuk menjalankan proyek ini di komputer lokal Anda:
 
-Database: MySQL
+### Prasyarat
 
-Icons: Heroicons / FontAwesome
+- PHP >= 8.1
+- Composer
+- Node.js & NPM
+- MySQL
 
-⚙️ Prasyarat (Requirements)
-Sebelum menginstall, pastikan komputer Anda memiliki:
+### Langkah Instalasi
 
-PHP >= 8.1
+1.  **Clone Repositori**
 
-Composer
+    ```bash
+    git clone [https://github.com/username-anda/desa-digital.git](https://github.com/username-anda/desa-digital.git)
+    cd desa-digital
+    ```
 
-Node.js & NPM
+2.  **Install Dependencies**
 
-MySQL / MariaDB
+    ```bash
+    composer install
+    npm install
+    ```
 
-📦 Cara Instalasi
-Ikuti langkah-langkah berikut untuk menjalankan projek di komputer lokal (Localhost):
+3.  **Setup Environment**
+    Salin file `.env.example` menjadi `.env`:
 
-Clone Repository
+    ```bash
+    cp .env.example .env
+    ```
 
-Bash
-git clone https://github.com/username-anda/desa-digital.git
-cd desa-digital
-Install Dependencies Install paket PHP dan JavaScript:
+    Sesuaikan konfigurasi database di file `.env`:
 
-Bash
-composer install
-npm install
-Setup Environment Salin file .env.example menjadi .env:
+    ```env
+    DB_DATABASE=db_desa_digital
+    DB_USERNAME=root
+    DB_PASSWORD=
+    ```
 
-Bash
-cp .env.example .env
-Buka file .env dan sesuaikan konfigurasi database:
+4.  **Generate App Key**
 
-Cuplikan kode
-DB_DATABASE=db_desa_digital
-DB_USERNAME=root
-DB_PASSWORD=
-Generate Key
+    ```bash
+    php artisan key:generate
+    ```
 
-Bash
-php artisan key:generate
-Migrasi & Seeding Database Jalankan migrasi untuk membuat tabel dan mengisi data awal (User Admin & Setting Default):
+5.  **Migrasi & Seeding Database**
+    Membuat tabel dan akun admin default:
 
-Bash
-php artisan migrate --seed
-Setup Storage Link Penting! Lakukan ini agar gambar logo dan slider yang diupload bisa muncul:
+    ```bash
+    php artisan migrate --seed
+    ```
 
-Bash
-php artisan storage:link
-Jalankan Aplikasi Buka dua terminal terpisah:
+6.  **Link Storage (PENTING)**
+    Agar gambar logo dan slider yang diupload bisa muncul:
 
-Terminal 1 (Laravel Server):
+    ```bash
+    php artisan storage:link
+    ```
 
-Bash
-php artisan serve
-Terminal 2 (Vite - Compile Assets):
+7.  **Jalankan Aplikasi**
+    Buka 2 terminal berbeda:
 
-Bash
-npm run dev
-Selesai! Buka browser dan akses: http://127.0.0.1:8000
+    _Terminal 1 (Vite):_
 
-🔑 Akun Default (Login)
-Gunakan akun berikut untuk masuk ke Panel Admin:
+    ```bash
+    npm run dev
+    ```
 
-Email: admin@desa.id
+    _Terminal 2 (Laravel):_
 
-Password: password
+    ```bash
+    php artisan serve
+    ```
 
-(Catatan: Akun ini dibuat melalui Database Seeder)
+    Akses aplikasi di: `http://localhost:8000`
 
-📂 Struktur Folder Penting
-app/Models - Model database (Apbdes, SiteSetting, HeroSlide, dll).
+---
 
-app/Http/Controllers - Logika aplikasi (AdminSetting, HomeController, dll).
+## 🔐 Akun Default
 
-resources/views/public - Tampilan halaman depan (Warga).
+Gunakan akun ini untuk masuk ke Panel Admin:
 
-resources/views/admin - Tampilan panel admin.
+- **Email:** `admin@desa.id`
+- **Password:** `password` (atau sesuai seeder Anda)
 
-resources/views/components - Komponen UI ulang-pakai (Navbar, Sidebar).
+---
 
-routes/web.php - Definisi jalur URL.
+## 📂 Struktur Menu Admin
 
-🤝 Kontribusi
-Jika Anda ingin berkontribusi:
+- **Dashboard**
+- **Tentang Desa**
+    - Profil Desa
+    - Perangkat Desa
+- **Layanan Warga**
+    - Permohonan Surat
+    - Aspirasi & Pengaduan
+- **Publikasi Desa**
+    - Berita & Artikel
+    - Potensi (UMKM/Wisata)
+- **Data & Transparansi**
+    - Data Penduduk
+    - Transparansi APBDes
+- **Pengaturan**
+    - Setting Home (Identitas & Slider)
 
-Fork repository ini.
+---
 
-Buat branch fitur baru (git checkout -b fitur-baru).
+## 🤝 Kontribusi
 
-Commit perubahan Anda (git commit -m 'Menambah fitur X').
+Kontribusi selalu diterima!
 
-Push ke branch (git push origin fitur-baru).
+1.  Fork Project ini
+2.  Buat Feature Branch (`git checkout -b fitur-baru`)
+3.  Commit perubahan (`git commit -m 'Menambah fitur X'`)
+4.  Push ke Branch (`git push origin fitur-baru`)
+5.  Open Pull Request
 
-Buat Pull Request.
+---
 
-📝 Lisensi
-Projek ini bersifat Open Source di bawah lisensi MIT.
+## 📝 Lisensi
 
-Dibuat dengan ❤️ untuk Kemajuan Desa Indonesia.
+Proyek ini dilisensikan di bawah [MIT License](LICENSE).
