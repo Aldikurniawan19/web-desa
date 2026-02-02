@@ -54,9 +54,12 @@ _(Simpan screenshot aplikasi Anda di folder `public/screenshots` lalu link di si
 | :----------------------------------: | :--------------------------------------------: |
 | ![Home](public/screenshots/home.png) | ![Dashboard](public/screenshots/dashboard.png) |
 
-                    |                       Mobile View                        |
-                    | :------------------------------------------------------: |
-                    | <img src="public/screenshots/handphone.png" width="300"> |
+<br>
+
+<div align="center">
+  <p><strong>Tampilan Mobile (HP)</strong></p>
+  <img src="public/screenshots/handphone.png" width="300" alt="Tampilan Mobile">
+</div>
 
 ---
 
