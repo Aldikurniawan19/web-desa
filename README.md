@@ -54,9 +54,9 @@ _(Simpan screenshot aplikasi Anda di folder `public/screenshots` lalu link di si
 | :----------------------------------: | :--------------------------------------------: |
 | ![Home](public/screenshots/home.png) | ![Dashboard](public/screenshots/dashboard.png) |
 
-|                    Transparansi APBDes                     |                       Mobile View                        |
-| :--------------------------------------------------------: | :------------------------------------------------------: |
-| ![APBDes](https://via.placeholder.com/400x200?text=APBDes) | <img src="public/screenshots/handphone.png" width="300"> |
+                    |                       Mobile View                        |
+                    | :------------------------------------------------------: |
+                    | <img src="public/screenshots/handphone.png" width="300"> |
 
 ---
 
