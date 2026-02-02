@@ -48,7 +48,7 @@
 
 ## 📸 Tangkapan Layar (Screenshots)
 
-_(Simpan screenshot aplikasi Anda di folder `public/screenshots` lalu link di sini)_
+\_\_
 
 |         Halaman Depan (Home)         |                Dashboard Admin                 |
 | :----------------------------------: | :--------------------------------------------: |
