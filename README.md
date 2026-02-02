@@ -37,7 +37,7 @@
 
 ## 🛠️ Teknologi yang Digunakan
 
-- **Backend:** Laravel 10/11 (PHP Framework)
+- **Backend:** Laravel 12 (PHP Framework)
 - **Frontend:** Blade Templates
 - **Styling:** Tailwind CSS
 - **Interactivity:** Alpine.js
@@ -50,13 +50,13 @@
 
 _(Simpan screenshot aplikasi Anda di folder `public/screenshots` lalu link di sini)_
 
-|                  Halaman Depan (Home)                  |                     Dashboard Admin                      |
-| :----------------------------------------------------: | :------------------------------------------------------: |
-| ![Home](https://via.placeholder.com/400x200?text=Home) | ![Admin](https://via.placeholder.com/400x200?text=Admin) |
+|         Halaman Depan (Home)         |                Dashboard Admin                 |
+| :----------------------------------: | :--------------------------------------------: |
+| ![Home](public/screenshots/home.png) | ![Dashboard](public/screenshots/dashboard.png) |
 
-|                    Transparansi APBDes                     |                        Mobile View                         |
-| :--------------------------------------------------------: | :--------------------------------------------------------: |
-| ![APBDes](https://via.placeholder.com/400x200?text=APBDes) | ![Mobile](https://via.placeholder.com/400x200?text=Mobile) |
+|                    Transparansi APBDes                     |                       Mobile View                        |
+| :--------------------------------------------------------: | :------------------------------------------------------: |
+| ![APBDes](https://via.placeholder.com/400x200?text=APBDes) | <img src="public/screenshots/handphone.png" width="300"> |
 
 ---
 
@@ -66,7 +66,7 @@ Ikuti langkah-langkah berikut untuk menjalankan proyek ini di komputer lokal And
 
 ### Prasyarat
 
-- PHP >= 8.1
+- PHP >= 8.3
 - Composer
 - Node.js & NPM
 - MySQL
@@ -184,4 +184,5 @@ Kontribusi selalu diterima!
 
 ## 📝 Lisensi
 
-Proyek ini dilisensikan di bawah [MIT License](LICENSE).
+Proyek ini bersifat _Open Source_ dan dilisensikan di bawah [MIT License](LICENSE).
+Hak Cipta © 2026 [Aldi Kurniawan](https://github.com/Aldikurniawan19).
